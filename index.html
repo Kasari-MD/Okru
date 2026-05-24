@@ -23,10 +23,11 @@ body {
     height: 100vh; /* Alto exacto de la pantalla del celular */
 }
 
-/* VIDEO: Ocupa el 48% de la pantalla */
+/* VIDEO: Ahora su altura es automática y mantiene la proporción 16:9 perfecta */
 .video-container {
     width: 100%;
-    height: 48vh;
+    height: auto;           /* ← CAMBIADO: Ya no usa vh, se ajusta al contenido */
+    aspect-ratio: 16 / 9;   /* ¡NUEVO! Fuerza la proporción exacta de la transmisión */
     background: black;
     flex-shrink: 0;
 }
@@ -37,7 +38,7 @@ body {
     border: none;
 }
 
-/* CHAT: Ocupa dinámicamente todo el espacio de abajo de forma automática */
+/* CHAT: Se seguirá estirando para ocupar todo el resto de la pantalla */
 .chat-container {
     width: 100%;
     flex-grow: 1;
