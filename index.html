@@ -7,59 +7,61 @@
 <title>Chat Okru</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#0e0e10;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
+/* Convertimos el body en un contenedor flexible vertical */
+body {
+    background: #0e0e10;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Fuerza a que la página mida exactamente la pantalla */
 }
 
-/* VIDEO */
-
-.video-container{
-    width:100%;
-    height:45vh;
-    background:black;
+/* VIDEO: Mantiene su tamaño del 45% */
+.video-container {
+    width: 100%;
+    height: 45vh;
+    background: black;
+    flex-shrink: 0; /* Evita que se encoja */
 }
 
-.video-container iframe{
-    width:100%;
-    height:100%;
-    border:none;
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-/* TITULO */
-
-.chat-title{
-    background:#18181b;
-    color:white;
-    text-align:center;
-    padding:15px;
-    font-size:26px;
-    font-weight:bold;
-    border-top:1px solid #2a2a2d;
-    border-bottom:1px solid #2a2a2d;
+/* TITULO: Ocupa su espacio natural */
+.chat-title {
+    background: #18181b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 26px;
+    font-weight: bold;
+    border-top: 1px solid #2a2a2d;
+    border-bottom: 1px solid #2a2a2d;
+    flex-shrink: 0; /* Evita que se encoja */
 }
 
-/* CHAT */
-
-.chat-container{
-    width:100%;
-    height:55vh;
+/* CHAT: ¡Aquí está la magia! */
+.chat-container {
+    width: 100%;
+    flex-grow: 1; /* Le dice al chat: "Toma TODO el espacio que sobre abajo" */
+    position: relative;
 }
 
-.chat-container iframe{
-    width:100%;
-    height:100%;
-    border:none;
+.chat-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
-
 </style>
 </head>
 
