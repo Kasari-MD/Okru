@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,13 +20,13 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Ocupa exactamente el alto de la pantalla */
+    height: 100vh; /* Alto exacto de la pantalla del celular */
 }
 
-/* VIDEO: Reducido sutilmente al 42% para clavar la proporción de tu referencia */
+/* VIDEO: Ocupa el 48% de la pantalla */
 .video-container {
     width: 100%;
-    height: 42vh;
+    height: 48vh;
     background: black;
     flex-shrink: 0;
 }
@@ -36,18 +37,7 @@ body {
     border: none;
 }
 
-/* TITULO: Estilo idéntico a la referencia (más pequeño, alineado a la izquierda y con fondo oscuro) */
-.chat-title {
-    background: #0e0e10;            /* Mismo fondo negro/oscuro del stream */
-    color: #efeff1;                 /* Blanco grisáceo estilo Twitch */
-    text-align: center;             /* Si prefieres alinearlo a la izquierda como la imagen, cambia por 'left' y añade padding-left: 15px; */
-    padding: 10px 0;                /* Menos relleno para que no empuje el chat */
-    font-size: 16px;                /* Fuente mucho más pequeña, igual a la captura */
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-/* CHAT: Se estira de forma limpia para rellenar el resto del teléfono */
+/* CHAT: Ocupa dinámicamente todo el espacio de abajo de forma automática */
 .chat-container {
     width: 100%;
     flex-grow: 1;
@@ -63,19 +53,15 @@ body {
 
 <body>
 
-<!-- VIDEO -->
 <div class="video-container">
     <iframe id="videoFrame" allowfullscreen></iframe>
 </div>
 
-
-<!-- CHAT -->
 <div class="chat-container">
     <iframe id="chatFrame"></iframe>
 </div>
 
 <script>
-
 const params = new URLSearchParams(window.location.search);
 
 const twitchUser = params.get("user");
@@ -86,7 +72,6 @@ document.getElementById("videoFrame").src =
 
 document.getElementById("chatFrame").src =
 `https://www.twitch.tv/embed/${twitchUser}/chat?parent=okru-nu.vercel.app`;
-
 </script>
 
 </body>
