@@ -8,81 +8,60 @@
 <title>Chat Okru</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#0e0e10;
-    font-family:Arial,sans-serif;
-    overflow:hidden;
+body {
+    background: #0e0e10;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Alto exacto de la pantalla del celular */
 }
 
-/* VIDEO */
-
-.video-container{
-    width:100%;
-    height:45vh;
-    background:black;
+/* VIDEO: Ocupa el 48% de la pantalla */
+.video-container {
+    width: 100%;
+    height: 48vh;
+    background: black;
+    flex-shrink: 0;
 }
 
-.video-container iframe{
-    width:100%;
-    height:100%;
-    border:none;
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-/* TITULO */
-
-.chat-title{
-    background:#18181b;
-    color:white;
-    text-align:center;
-    padding:15px;
-    font-size:26px;
-    font-weight:bold;
-    border-top:1px solid #2a2a2d;
-    border-bottom:1px solid #2a2a2d;
+/* CHAT: Ocupa dinámicamente todo el espacio de abajo de forma automática */
+.chat-container {
+    width: 100%;
+    flex-grow: 1;
 }
 
-/* CHAT */
-
-.chat-container{
-    width:100%;
-    height:55vh;
+.chat-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
-
-.chat-container iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- VIDEO -->
 <div class="video-container">
     <iframe id="videoFrame" allowfullscreen></iframe>
 </div>
 
-<!-- TITULO -->
-<div class="chat-title">
-    Chat del stream
-</div>
-
-<!-- CHAT -->
 <div class="chat-container">
     <iframe id="chatFrame"></iframe>
 </div>
 
 <script>
-
 const params = new URLSearchParams(window.location.search);
 
 const twitchUser = params.get("user");
@@ -93,7 +72,6 @@ document.getElementById("videoFrame").src =
 
 document.getElementById("chatFrame").src =
 `https://www.twitch.tv/embed/${twitchUser}/chat?parent=okru-nu.vercel.app`;
-
 </script>
 
 </body>
