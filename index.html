@@ -13,22 +13,21 @@
     box-sizing: border-box;
 }
 
-/* Convertimos el body en un contenedor flexible vertical */
 body {
     background: #0e0e10;
     font-family: Arial, sans-serif;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Fuerza a que la página mida exactamente la pantalla */
+    height: 100vh; /* Ocupa exactamente el alto de la pantalla */
 }
 
-/* VIDEO: Mantiene su tamaño del 45% */
+/* VIDEO: Reducido sutilmente al 42% para clavar la proporción de tu referencia */
 .video-container {
     width: 100%;
-    height: 45vh;
+    height: 42vh;
     background: black;
-    flex-shrink: 0; /* Evita que se encoja */
+    flex-shrink: 0;
 }
 
 .video-container iframe {
@@ -37,24 +36,21 @@ body {
     border: none;
 }
 
-/* TITULO: Ocupa su espacio natural */
+/* TITULO: Estilo idéntico a la referencia (más pequeño, alineado a la izquierda y con fondo oscuro) */
 .chat-title {
-    background: #18181b;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 26px;
+    background: #0e0e10;            /* Mismo fondo negro/oscuro del stream */
+    color: #efeff1;                 /* Blanco grisáceo estilo Twitch */
+    text-align: center;             /* Si prefieres alinearlo a la izquierda como la imagen, cambia por 'left' y añade padding-left: 15px; */
+    padding: 10px 0;                /* Menos relleno para que no empuje el chat */
+    font-size: 16px;                /* Fuente mucho más pequeña, igual a la captura */
     font-weight: bold;
-    border-top: 1px solid #2a2a2d;
-    border-bottom: 1px solid #2a2a2d;
-    flex-shrink: 0; /* Evita que se encoja */
+    flex-shrink: 0;
 }
 
-/* CHAT: ¡Aquí está la magia! */
+/* CHAT: Se estira de forma limpia para rellenar el resto del teléfono */
 .chat-container {
     width: 100%;
-    flex-grow: 1; /* Le dice al chat: "Toma TODO el espacio que sobre abajo" */
-    position: relative;
+    flex-grow: 1;
 }
 
 .chat-container iframe {
