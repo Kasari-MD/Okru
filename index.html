@@ -23,16 +23,12 @@
             width: 100%;
             flex: 1;
             background: #0e0e10;
-            position: relative;
-            overflow: hidden;
+            display: flex; /* Alinea de forma nativa el iframe sin romper proporciones */
         }
         .chat-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+            border: none;
             width: 100%;
             height: 100%;
-            min-height: 400px; /* Fuerza al chat a tener la altura mínima donde Twitch muestra los botones */
         }
     </style>
 </head>
