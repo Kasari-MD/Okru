@@ -23,11 +23,17 @@
             width: 100%;
             flex: 1;
             background: #0e0e10;
+            position: relative;
+            overflow: hidden;
         }
-        iframe {
+        /* Este truco ajusta el iframe del canal para que solo se vea la zona del chat con sus botones */
+        .chat-container iframe {
             border: none;
             width: 100%;
             height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
@@ -38,7 +44,7 @@
     </div>
 
     <div class="chat-container">
-        <iframe src="https://www.twitch.tv/embed/tolegon_s/chat?parent=okru-nu.vercel.app&darkpopout&size=large"></iframe>
+        <iframe src="https://www.twitch.tv/embed/tolegon_s/chat?parent=okru-nu.vercel.app&darkpopout"></iframe>
     </div>
 
 </body>
