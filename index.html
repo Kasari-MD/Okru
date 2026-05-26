@@ -40,15 +40,15 @@
         /* DISEÑO PARA PC Y PANTALLAS HORIZONTALES */
         @media (min-width: 768px) or (orientation: landscape) {
             body {
-                flex-direction: row; /* PC: video a la izquierda, chat a la derecha */
+                flex-direction: row;
             }
             .video-container {
-                width: 75%; /* El video ocupa el 75% del ancho */
+                width: 65%; /* Bajamos de 75% a 65% para que el video no sature la pantalla */
                 height: 100%;
-                aspect-ratio: auto; /* Desactivamos esto en PC para que use todo el alto disponible */
+                aspect-ratio: auto;
             }
             .chat-container {
-                width: 25%; /* El chat se queda con el 25% derecho */
+                width: 35%; /* Subimos de 25% a 35% para darle buen espacio al chat y sus botones */
                 height: 100%;
             }
         }
