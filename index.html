@@ -13,7 +13,7 @@
             width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Celular: video arriba, chat abajo */
             overflow: hidden;
         }
         .video-container {
@@ -35,6 +35,22 @@
             position: absolute;
             top: 0;
             left: 0;
+        }
+
+        /* DISEÑO PARA PC Y PANTALLAS HORIZONTALES */
+        @media (min-width: 768px) or (orientation: landscape) {
+            body {
+                flex-direction: row; /* PC: video a la izquierda, chat a la derecha */
+            }
+            .video-container {
+                width: 75%; /* El video ocupa el 75% del ancho */
+                height: 100%;
+                aspect-ratio: auto; /* Desactivamos esto en PC para que use todo el alto disponible */
+            }
+            .chat-container {
+                width: 25%; /* El chat se queda con el 25% derecho */
+                height: 100%;
+            }
         }
     </style>
 </head>
