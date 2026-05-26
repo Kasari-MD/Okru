@@ -13,7 +13,7 @@
             width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column; /* Celular: video arriba, chat abajo */
+            flex-direction: column;
             overflow: hidden;
         }
         .video-container {
@@ -28,10 +28,12 @@
             background: #0e0e10;
             position: relative;
         }
-        .chat-container iframe {
+        iframe {
             border: none;
             width: 100%;
             height: 100%;
+        }
+        .chat-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -43,12 +45,12 @@
                 flex-direction: row;
             }
             .video-container {
-                width: 65%; /* Bajamos de 75% a 65% para que el video no sature la pantalla */
+                width: 65%;
                 height: 100%;
                 aspect-ratio: auto;
             }
             .chat-container {
-                width: 35%; /* Subimos de 25% a 35% para darle buen espacio al chat y sus botones */
+                width: 35%;
                 height: 100%;
             }
         }
@@ -57,12 +59,24 @@
 <body>
 
     <div class="video-container">
-        <iframe src="https://ok.ru/videoembed/8254133406437" width="100%" height="100%" allowfullscreen></iframe>
+        <!-- Le ponemos un id="reproductor" para que JavaScript pueda cambiarle el video -->
+        <iframe id="reproductor" src="https://ok.ru/videoembed/8254133406437" allowfullscreen></iframe>
     </div>
 
     <div class="chat-container">
         <iframe src="https://www.twitch.tv/embed/tolegon_s/chat?parent=okru-nu.vercel.app&darkpopout"></iframe>
     </div>
+
+    <script>
+        // Este script lee la barra de direcciones de tu navegador
+        const parametros = new URLSearchParams(window.location.search);
+        const idVideo = parametros.get('video');
+
+        // Si encuentra el texto "&video=NUMERO", cambia el reproductor automáticamente
+        if (idVideo) {
+            document.getElementById('reproductor').src = "https://ok.ru/videoembed/" + idVideo;
+        }
+    </script>
 
 </body>
 </html>
